@@ -12,14 +12,11 @@ class Converters extends React.Component {
   };
 
   render() {
-    const children = React.Children.map(this.props.children, child => {
-      return React.cloneElement(child, {
-        convertToUSD: this.convertToUSD,
-        convertToCAD: this.convertToCAD,
-        amount: this.state.amount
-      });
+    return this.props.render({
+      amount: this.state.amount,
+      convertToUSD: this.convertToUSD,
+      convertToCAD: this.convertToCAD
     });
-    return children;
   }
 }
 

@@ -7,10 +7,14 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Converters>
-          <Converter currency="usd" />
-          <Converter currency="cad" />
-        </Converters>
+        <Converters
+          render={obj => (
+            <>
+              <Converter currency="usd" {...obj} />
+              <Converter currency="cad" {...obj} />
+            </>
+          )}
+        ></Converters>
       </header>
     </div>
   );
